@@ -41,7 +41,7 @@ export function GameShell({ game, onHome, children }: Props) {
   );
 
   return (
-    <div className="flex min-h-dvh flex-col safe-bottom">
+    <div className="paper-grain flex min-h-dvh flex-col safe-bottom">
       <header className="flex items-center gap-3 px-3 pt-3 sm:px-5">
         <button
           onClick={onHome}
