@@ -54,7 +54,7 @@ export function World() {
   const maxStars = GAMES.length * 3;
 
   return (
-    <div className="relative mx-auto flex min-h-dvh w-full max-w-4xl flex-col gap-6 overflow-hidden px-4 py-7 safe-bottom sm:px-6">
+    <div className="paper-grain relative mx-auto flex min-h-dvh w-full max-w-4xl flex-col gap-6 overflow-hidden px-4 py-7 safe-bottom sm:px-6">
       {/* Latar awan */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         {CLOUDS.map((c, i) => (
@@ -120,11 +120,14 @@ export function World() {
         {GAMES.map(({ meta: game }, i) => {
           const rec = mounted ? games[game.id] : undefined;
           const tint = TINT[game.color];
+          // Kemiringan kecil bergantian biar ga kaku kayak template
+          const tilt = [-1.2, 0.8, -0.6, 1.1, -0.9, 0.7][i % 6];
+          const emojiSize = ["text-6xl", "text-[4.2rem]", "text-6xl", "text-[3.8rem]"][i % 4];
           return (
             <motion.div
               key={game.id}
-              initial={{ y: 24, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
+              initial={{ y: 24, opacity: 0, rotate: 0 }}
+              animate={{ y: 0, opacity: 1, rotate: tilt }}
               transition={{ delay: 0.05 * i, type: "spring", stiffness: 240, damping: 20 }}
               className="h-full"
             >
@@ -140,7 +143,7 @@ export function World() {
                     ⭐ {rec.stars}
                   </span>
                 )}
-                <span className="text-6xl leading-none transition-transform duration-200 group-hover:scale-110 group-active:scale-95">
+                <span className={`${emojiSize} leading-none transition-transform duration-200 group-hover:scale-110 group-active:scale-95`}>
                   {game.emoji}
                 </span>
                 <span className="line-clamp-2 text-2xl leading-tight sm:text-[1.6rem]">{game.title}</span>
