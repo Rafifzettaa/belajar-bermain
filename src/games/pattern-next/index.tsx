@@ -67,7 +67,7 @@ function Board({
         </span>
       </div>
 
-      <div className="flex w-full flex-wrap items-stretch justify-center gap-3 sm:gap-5">
+      <div className="flex w-full flex-wrap items-stretch justify-center gap-4 sm:gap-5">
         {options.map((opt, i) => (
           <OptionButton
             key={`${opt.label}-${i}`}

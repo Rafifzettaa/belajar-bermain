@@ -7,6 +7,8 @@ const HIDE: { emoji: string; label: string }[] = [
   { emoji: "🐞", label: "kepik" },
   { emoji: "🍀", label: "daun" },
   { emoji: "❤️", label: "hati" },
+  { emoji: "🐶", label: "anak anjing" },
+  { emoji: "🍓", label: "stroberi" },
 ];
 
 export const levels: ShellLevel[] = HIDE.flatMap((hide, i) => [

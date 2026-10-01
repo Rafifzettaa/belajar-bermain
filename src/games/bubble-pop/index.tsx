@@ -77,7 +77,7 @@ function Board({
       </div>
 
       <div
-        className="relative grid h-[340px] w-full max-w-lg grid-cols-3 grid-rows-3 gap-1 sm:h-[380px]"
+        className="relative grid h-[340px] w-full max-w-lg grid-cols-3 grid-rows-3 gap-4 sm:h-[380px]"
         aria-label="gelembung"
       >
         {slots.map((b, i) => {

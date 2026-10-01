@@ -42,6 +42,7 @@ const CARDS: { seq: string[]; next: string }[] = [
   { seq: ["🔵", "🔵", "🔴", "🔴"], next: "🔵" },
   { seq: ["🟢", "🟢", "🟡", "🟡"], next: "🟢" },
   { seq: ["🟠", "🟠", "🟣", "🟣"], next: "🟠" },
+  { seq: ["🟣", "🟣", "🟡", "🟡"], next: "🟣" },
 
   { seq: ["🔴", "🔵", "🟡", "🔴", "🔵", "🟡"], next: "🔴" },
   { seq: ["🔵", "🟡", "🟢", "🔵", "🟡", "🟢"], next: "🔵" },
@@ -49,6 +50,7 @@ const CARDS: { seq: string[]; next: string }[] = [
   { seq: ["🟢", "🟠", "🔴", "🟢", "🟠", "🔴"], next: "🟢" },
   { seq: ["🟡", "🟣", "🔵", "🟡", "🟣", "🔵"], next: "🟡" },
   { seq: ["🟠", "🟢", "🔵", "🟠", "🟢", "🔵"], next: "🟠" },
+  { seq: ["🟣", "🟢", "🟠", "🟣", "🟢", "🟠"], next: "🟣" },
 ];
 
 export const levels: PickLevel[] = CARDS.map((card, i) => {

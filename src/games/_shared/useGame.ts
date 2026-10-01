@@ -68,10 +68,11 @@ export function useGame(
           const next = index + 1;
           if (next >= session.length) {
             setPhase("complete");
-            sfx.star();
+            sfx.hooray();
             haptic.win();
             doneRef.current({ score: score + (correct ? 1 : 0), total: session.length });
           } else {
+            sfx.levelUp();
             setIndex(next);
             setLastCorrect(false);
             setPhase("playing");

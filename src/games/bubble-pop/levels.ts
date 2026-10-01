@@ -11,6 +11,8 @@ const POOL: Sprite[] = [
   { emoji: "🦑", label: "cumi" },
   { emoji: "🐢", label: "kura-kura" },
   { emoji: "🦐", label: "udang" },
+  { emoji: "🐬", label: "lumba-lumba" },
+  { emoji: "🐋", label: "paus" },
 ];
 
 function build(i: number, count: number): BubbleLevel {

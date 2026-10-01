@@ -6,17 +6,9 @@ import { GameShell } from "../_shared/GameShell";
 import { sfx } from "@/lib/audio";
 import { haptic } from "@/lib/haptics";
 import type { DragLevel } from "../_shared/types";
+import { levels } from "./levels";
 
-export const levels: DragLevel[] = [
-  { id: "c1", kind: "drag", prompt: "🍓", promptLabel: "stroberi", items: ["🍓"], answer: 1 },
-  { id: "c2", kind: "drag", prompt: "🍇🍇🍇", promptLabel: "tiga anggur", items: ["🍇", "🍇", "🍇"], answer: 3 },
-  { id: "c3", kind: "drag", prompt: "🥕🥕", promptLabel: "dua wortel", items: ["🥕", "🥕"], answer: 2 },
-  { id: "c4", kind: "drag", prompt: "🐰🐰🐰🐰🐰", promptLabel: "lima kelinci", items: ["🐰", "🐰", "🐰", "🐰", "🐰"], answer: 5 },
-  { id: "c5", kind: "drag", prompt: "🌻🌻🌻", promptLabel: "tiga bunga matahari", items: ["🌻", "🌻", "🌻"], answer: 3 },
-  { id: "c6", kind: "drag", prompt: "🍒🍒", promptLabel: "dua ceri", items: ["🍒", "🍒"], answer: 2 },
-  { id: "c7", kind: "drag", prompt: "🥕🥕🥕🥕", promptLabel: "empat wortel", items: ["🥕", "🥕", "🥕", "🥕"], answer: 4 },
-  { id: "c8", kind: "drag", prompt: "🐰🐰", promptLabel: "dua kelinci", items: ["🐰", "🐰"], answer: 2 },
-];
+export { levels };
 
 const GAME = {
   id: "count-and-drag",

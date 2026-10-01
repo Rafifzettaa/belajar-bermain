@@ -48,23 +48,46 @@ function getPath(shape: TraceLevel["shape"]): Pt[] {
         { x: c + r * 0.5, y: c + r * 0.6 },
         { x: SIZE - 44, y: c - r * 0.6 },
       ];
+    case "diamond":
+      return [
+        { x: c, y: c - r },
+        { x: c + r, y: c },
+        { x: c, y: c + r },
+        { x: c - r, y: c },
+        { x: c, y: c - r },
+      ];
+    case "star": {
+      const pts: Pt[] = [];
+      const outer = r;
+      const inner = r * 0.42;
+      for (let i = 0; i <= 10; i++) {
+        const rad = i % 2 === 0 ? outer : inner;
+        const a = (i / 10) * Math.PI * 2 - Math.PI / 2;
+        pts.push({ x: c + rad * Math.cos(a), y: c + rad * Math.sin(a) });
+      }
+      return pts;
+    }
+    case "heart": {
+      // Symmetric heart approximated with dense point samples
+      const pts: Pt[] = [];
+      const steps = 48;
+      for (let i = 0; i <= steps; i++) {
+        const t = (i / steps) * Math.PI * 2;
+        // Parametric heart curve
+        const hx = 16 * Math.pow(Math.sin(t), 3);
+        const hy = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t));
+        // Scale and center
+        const scale = r / 18;
+        pts.push({ x: c + hx * scale, y: c + hy * scale - r * 0.1 });
+      }
+      return pts;
+    }
   }
 }
 
-export const levels: TraceLevel[] = [
-  { id: "t1", kind: "trace", prompt: "📏", promptLabel: "garis lurus", shape: "line" },
-  { id: "t2", kind: "trace", prompt: "🔺", promptLabel: "segitiga", shape: "triangle" },
-  { id: "t3", kind: "trace", prompt: "🟦", promptLabel: "persegi", shape: "square" },
-  { id: "t4", kind: "trace", prompt: "⚡", promptLabel: "zig zag", shape: "zigzag" },
-  { id: "t5", kind: "trace", prompt: "⚪", promptLabel: "lingkaran", shape: "circle" },
-  { id: "t6", kind: "trace", prompt: "⬜", promptLabel: "persegi panjang", shape: "square" },
-  { id: "t7", kind: "trace", prompt: "🌟", promptLabel: "zig zag", shape: "zigzag" },
-  { id: "t8", kind: "trace", prompt: "🔵", promptLabel: "lingkaran", shape: "circle" },
-  { id: "t9", kind: "trace", prompt: "📐", promptLabel: "segitiga", shape: "triangle" },
-  { id: "t10", kind: "trace", prompt: "➖", promptLabel: "garis lurus", shape: "line" },
-  { id: "t11", kind: "trace", prompt: "🟩", promptLabel: "persegi", shape: "square" },
-  { id: "t12", kind: "trace", prompt: "🌈", promptLabel: "lingkaran", shape: "circle" },
-];
+import { levels } from "./levels";
+
+export { levels };
 
 const GAME = {
   id: "shape-trace",

@@ -34,7 +34,7 @@ export interface TraceLevel extends BaseLevel {
   kind: "trace";
   prompt: string;
   promptLabel: string;
-  shape: "line" | "circle" | "square" | "triangle" | "zigzag";
+  shape: "line" | "circle" | "square" | "triangle" | "zigzag" | "diamond" | "star" | "heart";
 }
 
 export interface ListenLevel extends BaseLevel {
